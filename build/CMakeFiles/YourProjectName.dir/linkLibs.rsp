@@ -1,0 +1,1 @@
+ "D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/libs/SDL3_install/lib/libSDL3.dll.a" -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
