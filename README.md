@@ -10,7 +10,7 @@ Simulation of a traffic junction management system using queue data structures. 
 - **Vehicle generation system**
 - **Lane prioritization logic**
 
-## 🎑 Features
+## 🎑 Features 
 - **Real-time traffic simulation**
 - **Priority lane handling (AL2)**
 - **Normal/High-priority mode switching**
