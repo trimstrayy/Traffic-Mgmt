@@ -154,7 +154,22 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=YourProjectName
+CMAKE_PROJECT_NAME:STATIC=TrafficSimulator
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=1.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/msys64/mingw64/bin/ranlib.exe
@@ -241,6 +256,15 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //The directory containing a CMake configuration file for SDL3.
 SDL3_DIR:PATH=D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/libs/SDL3_install/lib/cmake/SDL3
+
+//Value Computed by CMake
+TrafficSimulator_BINARY_DIR:STATIC=D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/build
+
+//Value Computed by CMake
+TrafficSimulator_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+TrafficSimulator_SOURCE_DIR:STATIC=D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt
 
 //Value Computed by CMake
 YourProjectName_BINARY_DIR:STATIC=D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/build
