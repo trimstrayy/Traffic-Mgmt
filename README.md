@@ -1,16 +1,18 @@
 # DSA Queue Simulator - Traffic Light System
 
-A C++/SDL3 implementation of a traffic light queue management system for COMP202 Data Structures and Algorithms assignment.
+A C++/SDL3 implementation to develop a traffic light and management system to fulfil the assignment due DSA, Comp 202.
+This mini project uses data structure like queue and also priority queue to manage the traffic through the lanes and traffic light management.
+A comprehensive demonstration of the system's functionality and features is provided at the end of this documentation.
 
-## 📋 Description
-Simulation of a traffic junction management system using queue data structures. Features:
+## 📋 Overview
+This project simulates a traffic junction management system using queue data structures. It includes:
 - **Priority-based vehicle queue management**
 - **SDL3 graphical visualization**
 - **Traffic light state management**
 - **Vehicle generation system**
 - **Lane prioritization logic**
 
-## 🎑 Features 
+## 🎑 Key Features
 - **Real-time traffic simulation**
 - **Priority lane handling (AL2)**
 - **Normal/High-priority mode switching**
@@ -29,14 +31,26 @@ Simulation of a traffic junction management system using queue data structures. 
 ### Build Steps
 ```bash
 # Clone repository with submodules
-git clone --recursive https://github.com/sarbeshkc/dsa-queue-simulator.git
-cd dsa-queue-simulator
+git clone --recursive https://github.com/trimstrayy/Traffic-Mgmt.git
+cd Traffic-Mgmt
 
-# Create build directory
-mkdir build && cd build
+# Create and redirect to build directory
+mkdir build 
+then
+cd build
 
 # Configure and build
-cmake .. && cmake --build .
+cmake .. 
+then 
+cmake --build .
 
 # Run the simulation
-cd Debug && ./comp_assignment
+cd build 
+cd bin
+run trafficgenerator.exe && run simulator.exe
+
+## 🎥 Simulation Display
+Below is a snapshot of the traffic simulation in action:
+![Traffic Simulation](./simulation.gif)
+
+This image shows the real-time traffic flow, lane prioritization, and traffic light management.
