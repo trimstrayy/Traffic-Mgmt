@@ -212,6 +212,61 @@ bool TrafficLight::isGreen(char lane) const {
 }
 
 void TrafficLight::render(SDL_Renderer* renderer) {
+    const int windowWidth = 800;
+    const int windowHeight = 800;
+    const int centerX = windowWidth / 2;
+    const int centerY = windowHeight / 2;
+    const int lightSize = 20;
+
+    // Define positions for traffic lights
+    SDL_FRect topLeftLight = {centerX - lightSize - 5, centerY - lightSize - 5, lightSize, lightSize};
+    SDL_FRect topRightLight = {centerX + 5, centerY - lightSize - 5, lightSize, lightSize};
+    SDL_FRect bottomLeftLight = {centerX - lightSize - 5, centerY + 25, lightSize, lightSize}; // Adjusted position
+    SDL_FRect bottomRightLight = {centerX + 5, centerY + 25, lightSize, lightSize}; // Adjusted position
+
+    // Render traffic lights based on current state
+    switch (currentState) {
+        case State::ALL_RED:
+            SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Red
+            SDL_RenderFillRect(renderer, &topLeftLight);
+            SDL_RenderFillRect(renderer, &topRightLight);
+            SDL_RenderFillRect(renderer, &bottomLeftLight);
+            SDL_RenderFillRect(renderer, &bottomRightLight);
+            break;
+        case State::A_GREEN:
+            SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255); // Green
+            SDL_RenderFillRect(renderer, &topLeftLight);
+            SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Red
+            SDL_RenderFillRect(renderer, &topRightLight);
+            SDL_RenderFillRect(renderer, &bottomLeftLight);
+            SDL_RenderFillRect(renderer, &bottomRightLight);
+            break;
+        case State::B_GREEN:
+            SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255); // Green
+            SDL_RenderFillRect(renderer, &topRightLight);
+            SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Red
+            SDL_RenderFillRect(renderer, &topLeftLight);
+            SDL_RenderFillRect(renderer, &bottomLeftLight);
+            SDL_RenderFillRect(renderer, &bottomRightLight);
+            break;
+        case State::C_GREEN:
+            SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255); // Green
+            SDL_RenderFillRect(renderer, &bottomLeftLight);
+            SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Red
+            SDL_RenderFillRect(renderer, &topLeftLight);
+            SDL_RenderFillRect(renderer, &topRightLight);
+            SDL_RenderFillRect(renderer, &bottomRightLight);
+            break;
+        case State::D_GREEN:
+            SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255); // Green
+            SDL_RenderFillRect(renderer, &bottomRightLight);
+            SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Red
+            SDL_RenderFillRect(renderer, &topLeftLight);
+            SDL_RenderFillRect(renderer, &topRightLight);
+            SDL_RenderFillRect(renderer, &bottomLeftLight);
+            break;
+    }
+
     // Draw traffic light control box in the corner
     int boxX = 10;
     int boxY = 10;
@@ -771,8 +826,8 @@ void TrafficLight::drawLightForD(SDL_Renderer* renderer, bool isRed) {
     const int ARROW_SIZE = 10;
 
     // Position for road D
-    int x = WINDOW_WIDTH/2 - 120;
-    int y = WINDOW_HEIGHT/2 - 80;
+    int x = WINDOW_WIDTH/2 - 100;
+    int y = WINDOW_HEIGHT/2 - 120;
 
     // Enhanced traffic light box with 3D effect
     // Shadow

@@ -1,3 +1,4 @@
-D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/build/CMakeFiles/YourProjectName.dir
+D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/build/CMakeFiles/simulator.dir
+D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/build/CMakeFiles/traffic_generator.dir
 D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/build/CMakeFiles/edit_cache.dir
 D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/build/CMakeFiles/rebuild_cache.dir

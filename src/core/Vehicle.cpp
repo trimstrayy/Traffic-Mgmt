@@ -881,64 +881,9 @@ void Vehicle::render(SDL_Renderer* renderer, SDL_Texture* vehicleTexture, int qu
         uint32_t time = SDL_GetTicks();
         bool flash = (time / 250) % 2 == 0; // Flash every 250ms
         color = flash ? SDL_Color{255, 0, 0, 255} : SDL_Color{180, 0, 0, 255};
-    }
-    else {
-        // Base color determined by lane and lane number
-        switch (lane) {
-            case 'A': // North road
-                if (laneNumber == 1) {
-                    color = {30, 144, 255, 255}; // Dodger Blue for A1
-                } else if (laneNumber == 2) {
-                    // AL2 is priority lane - orange with intensity based on count
-                    // Brighter orange when more vehicles (simulating priority)
-                    color = {255, 140, 0, 255}; // Orange for A2 (Priority)
-                } else {
-                    // Free lane - green
-                    color = {50, 205, 50, 255}; // Lime Green for A3 (Free)
-                }
-                break;
-
-            case 'B': // East road
-                if (laneNumber == 1) {
-                    color = {75, 0, 130, 255}; // Indigo for B1
-                } else if (laneNumber == 2) {
-                    color = {218, 165, 32, 255}; // Goldenrod for B2
-                } else {
-                    color = {34, 139, 34, 255}; // Forest Green for B3 (Free)
-                }
-                break;
-
-            case 'C': // South road
-                if (laneNumber == 1) {
-                    color = {70, 130, 180, 255}; // Steel Blue for C1
-                } else if (laneNumber == 2) {
-                    color = {210, 105, 30, 255}; // Chocolate for C2
-                } else {
-                    color = {60, 179, 113, 255}; // Medium Sea Green for C3 (Free)
-                }
-                break;
-
-            case 'D': // West road
-                if (laneNumber == 1) {
-                    color = {138, 43, 226, 255}; // Blue Violet for D1
-                } else if (laneNumber == 2) {
-                    color = {205, 133, 63, 255}; // Peru for D2
-                } else {
-                    color = {46, 139, 87, 255}; // Sea Green for D3 (Free)
-                }
-                break;
-
-            default:
-                color = {150, 150, 150, 255}; // Grey default
-                break;
-        }
-    }
-
-    // Make vehicles brighter when turning for better visibility
-    if (turning) {
-        color.r = std::min(255, color.r + 40);
-        color.g = std::min(255, color.g + 40);
-        color.b = std::min(255, color.b + 40);
+    } else {
+        // Set color for vehicle body to white
+        color = {255, 255, 255, 255}; // White
     }
 
     // Set color for vehicle body
@@ -989,8 +934,8 @@ void Vehicle::render(SDL_Renderer* renderer, SDL_Texture* vehicleTexture, int qu
         }
     }
 
-    // STEP 4: Draw the vehicle body with border
-    SDL_RenderFillRect(renderer, &vehicleRect);
+    // STEP 4: Draw the vehicle body using the texture
+    SDL_RenderCopyF(renderer, vehicleTexture, NULL, &vehicleRect);
 
     // Add 3D effect with gradient
     SDL_Color shadowColor = {
@@ -1087,8 +1032,7 @@ void Vehicle::render(SDL_Renderer* renderer, SDL_Texture* vehicleTexture, int qu
                        centerX - symbolSize/2, centerY + symbolSize/2);
         SDL_RenderLine(renderer, centerX - symbolSize/2, centerY + symbolSize/2,
                        centerX + symbolSize/2, centerY + symbolSize/2);
-    }
-    else if (destination == Destination::STRAIGHT) {
+    } else if (destination == Destination::STRAIGHT) {
         // STRAIGHT indicator - double parallel lines
         SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); // Bright yellow
 

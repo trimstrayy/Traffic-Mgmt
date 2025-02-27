@@ -1,10 +1,11 @@
 // FILE: src/managers/TrafficManager.cpp
-#include "managers/TrafficManager.h"
+#include "../include/managers/TrafficManager.h"
 #include "utils/DebugLogger.h"
 #include <sstream>
 #include <algorithm>
 #include <wchar.h>
 #include "core/Constants.h"
+#include "math.h"
 
 TrafficManager::TrafficManager()
     : trafficLight(nullptr),

@@ -72,12 +72,11 @@ bool Renderer::loadTextures() {
         return false;
     }
 
-    // Fill with blue color using a simpler approach
-    // Create a color value manually
-    Uint32 blueColor = 0x0000FFFF; // RGBA format: blue with full alpha
+    // Fill with white color
+    Uint32 whiteColor = 0xFFFFFFFF; // RGBA format: white with full alpha
 
     // Fill the entire surface with this color
-    SDL_FillSurfaceRect(surface, NULL, blueColor);
+    SDL_FillSurfaceRect(surface, NULL, whiteColor);
 
     carTexture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_DestroySurface(surface);
@@ -203,7 +202,7 @@ void Renderer::drawRoadsAndLanes() {
     SDL_RenderClear(renderer);
 
     // Draw grass areas in corners (to highlight road areas)
-    SDL_SetRenderDrawColor(renderer, 30, 100, 30, 255);  // Dark green grass
+    SDL_SetRenderDrawColor(renderer, 40, 40, 255, 255);  // Dark green grass
 
     // Top-left grass
     SDL_FRect grassTL = {

@@ -110,7 +110,7 @@ CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-
 CMAKE_GNUtoMS:BOOL=OFF
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/YourProjectName
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/TrafficJunctionSimulator
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/msys64/mingw64/bin/ld.exe
@@ -154,7 +154,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=TrafficSimulator
+CMAKE_PROJECT_NAME:STATIC=TrafficJunctionSimulator
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.0
@@ -258,22 +258,13 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 SDL3_DIR:PATH=D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/libs/SDL3_install/lib/cmake/SDL3
 
 //Value Computed by CMake
-TrafficSimulator_BINARY_DIR:STATIC=D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/build
+TrafficJunctionSimulator_BINARY_DIR:STATIC=D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/build
 
 //Value Computed by CMake
-TrafficSimulator_IS_TOP_LEVEL:STATIC=ON
+TrafficJunctionSimulator_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-TrafficSimulator_SOURCE_DIR:STATIC=D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt
-
-//Value Computed by CMake
-YourProjectName_BINARY_DIR:STATIC=D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt/build
-
-//Value Computed by CMake
-YourProjectName_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-YourProjectName_SOURCE_DIR:STATIC=D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt
+TrafficJunctionSimulator_SOURCE_DIR:STATIC=D:/KU/3rd SEMESTER/DSA COMP 202/Traffic-Mgmt
 
 
 ########################

@@ -62,11 +62,13 @@ CMAKE_BINARY_DIR = "D:\KU\3rd SEMESTER\DSA COMP 202\Traffic-Mgmt\build"
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/YourProjectName.dir/all
+all: CMakeFiles/simulator.dir/all
+all: CMakeFiles/traffic_generator.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/YourProjectName.dir/codegen
+codegen: CMakeFiles/simulator.dir/codegen
+codegen: CMakeFiles/traffic_generator.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -74,40 +76,73 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/YourProjectName.dir/clean
+clean: CMakeFiles/simulator.dir/clean
+clean: CMakeFiles/traffic_generator.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/YourProjectName.dir
+# Target rules for target CMakeFiles/simulator.dir
 
 # All Build rule for target.
-CMakeFiles/YourProjectName.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\YourProjectName.dir\build.make CMakeFiles/YourProjectName.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\YourProjectName.dir\build.make CMakeFiles/YourProjectName.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="D:\KU\3rd SEMESTER\DSA COMP 202\Traffic-Mgmt\build\CMakeFiles" --progress-num=1,2 "Built target YourProjectName"
-.PHONY : CMakeFiles/YourProjectName.dir/all
+CMakeFiles/simulator.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="D:\KU\3rd SEMESTER\DSA COMP 202\Traffic-Mgmt\build\CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9 "Built target simulator"
+.PHONY : CMakeFiles/simulator.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/YourProjectName.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\KU\3rd SEMESTER\DSA COMP 202\Traffic-Mgmt\build\CMakeFiles" 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/YourProjectName.dir/all
+CMakeFiles/simulator.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\KU\3rd SEMESTER\DSA COMP 202\Traffic-Mgmt\build\CMakeFiles" 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/simulator.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "D:\KU\3rd SEMESTER\DSA COMP 202\Traffic-Mgmt\build\CMakeFiles" 0
-.PHONY : CMakeFiles/YourProjectName.dir/rule
+.PHONY : CMakeFiles/simulator.dir/rule
 
 # Convenience name for target.
-YourProjectName: CMakeFiles/YourProjectName.dir/rule
-.PHONY : YourProjectName
+simulator: CMakeFiles/simulator.dir/rule
+.PHONY : simulator
 
 # codegen rule for target.
-CMakeFiles/YourProjectName.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\YourProjectName.dir\build.make CMakeFiles/YourProjectName.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="D:\KU\3rd SEMESTER\DSA COMP 202\Traffic-Mgmt\build\CMakeFiles" --progress-num=1,2 "Finished codegen for target YourProjectName"
-.PHONY : CMakeFiles/YourProjectName.dir/codegen
+CMakeFiles/simulator.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="D:\KU\3rd SEMESTER\DSA COMP 202\Traffic-Mgmt\build\CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9 "Finished codegen for target simulator"
+.PHONY : CMakeFiles/simulator.dir/codegen
 
 # clean rule for target.
-CMakeFiles/YourProjectName.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\YourProjectName.dir\build.make CMakeFiles/YourProjectName.dir/clean
-.PHONY : CMakeFiles/YourProjectName.dir/clean
+CMakeFiles/simulator.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/clean
+.PHONY : CMakeFiles/simulator.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/traffic_generator.dir
+
+# All Build rule for target.
+CMakeFiles/traffic_generator.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\traffic_generator.dir\build.make CMakeFiles/traffic_generator.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\traffic_generator.dir\build.make CMakeFiles/traffic_generator.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="D:\KU\3rd SEMESTER\DSA COMP 202\Traffic-Mgmt\build\CMakeFiles" --progress-num=10,11 "Built target traffic_generator"
+.PHONY : CMakeFiles/traffic_generator.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/traffic_generator.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\KU\3rd SEMESTER\DSA COMP 202\Traffic-Mgmt\build\CMakeFiles" 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/traffic_generator.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\KU\3rd SEMESTER\DSA COMP 202\Traffic-Mgmt\build\CMakeFiles" 0
+.PHONY : CMakeFiles/traffic_generator.dir/rule
+
+# Convenience name for target.
+traffic_generator: CMakeFiles/traffic_generator.dir/rule
+.PHONY : traffic_generator
+
+# codegen rule for target.
+CMakeFiles/traffic_generator.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\traffic_generator.dir\build.make CMakeFiles/traffic_generator.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="D:\KU\3rd SEMESTER\DSA COMP 202\Traffic-Mgmt\build\CMakeFiles" --progress-num=10,11 "Finished codegen for target traffic_generator"
+.PHONY : CMakeFiles/traffic_generator.dir/codegen
+
+# clean rule for target.
+CMakeFiles/traffic_generator.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\traffic_generator.dir\build.make CMakeFiles/traffic_generator.dir/clean
+.PHONY : CMakeFiles/traffic_generator.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

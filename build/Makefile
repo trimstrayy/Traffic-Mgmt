@@ -116,24 +116,109 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named YourProjectName
+# Target rules for targets named simulator
 
 # Build rule for target.
-YourProjectName: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 YourProjectName
-.PHONY : YourProjectName
+simulator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 simulator
+.PHONY : simulator
 
 # fast build rule for target.
-YourProjectName/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\YourProjectName.dir\build.make CMakeFiles/YourProjectName.dir/build
-.PHONY : YourProjectName/fast
+simulator/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/build
+.PHONY : simulator/fast
+
+#=============================================================================
+# Target rules for targets named traffic_generator
+
+# Build rule for target.
+traffic_generator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 traffic_generator
+.PHONY : traffic_generator
+
+# fast build rule for target.
+traffic_generator/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\traffic_generator.dir\build.make CMakeFiles/traffic_generator.dir/build
+.PHONY : traffic_generator/fast
+
+src/core/Lane.obj: src/core/Lane.cpp.obj
+.PHONY : src/core/Lane.obj
+
+# target to build an object file
+src/core/Lane.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/core/Lane.cpp.obj
+.PHONY : src/core/Lane.cpp.obj
+
+src/core/Lane.i: src/core/Lane.cpp.i
+.PHONY : src/core/Lane.i
+
+# target to preprocess a source file
+src/core/Lane.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/core/Lane.cpp.i
+.PHONY : src/core/Lane.cpp.i
+
+src/core/Lane.s: src/core/Lane.cpp.s
+.PHONY : src/core/Lane.s
+
+# target to generate assembly for a file
+src/core/Lane.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/core/Lane.cpp.s
+.PHONY : src/core/Lane.cpp.s
+
+src/core/TrafficLight.obj: src/core/TrafficLight.cpp.obj
+.PHONY : src/core/TrafficLight.obj
+
+# target to build an object file
+src/core/TrafficLight.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/core/TrafficLight.cpp.obj
+.PHONY : src/core/TrafficLight.cpp.obj
+
+src/core/TrafficLight.i: src/core/TrafficLight.cpp.i
+.PHONY : src/core/TrafficLight.i
+
+# target to preprocess a source file
+src/core/TrafficLight.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/core/TrafficLight.cpp.i
+.PHONY : src/core/TrafficLight.cpp.i
+
+src/core/TrafficLight.s: src/core/TrafficLight.cpp.s
+.PHONY : src/core/TrafficLight.s
+
+# target to generate assembly for a file
+src/core/TrafficLight.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/core/TrafficLight.cpp.s
+.PHONY : src/core/TrafficLight.cpp.s
+
+src/core/Vehicle.obj: src/core/Vehicle.cpp.obj
+.PHONY : src/core/Vehicle.obj
+
+# target to build an object file
+src/core/Vehicle.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/core/Vehicle.cpp.obj
+.PHONY : src/core/Vehicle.cpp.obj
+
+src/core/Vehicle.i: src/core/Vehicle.cpp.i
+.PHONY : src/core/Vehicle.i
+
+# target to preprocess a source file
+src/core/Vehicle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/core/Vehicle.cpp.i
+.PHONY : src/core/Vehicle.cpp.i
+
+src/core/Vehicle.s: src/core/Vehicle.cpp.s
+.PHONY : src/core/Vehicle.s
+
+# target to generate assembly for a file
+src/core/Vehicle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/core/Vehicle.cpp.s
+.PHONY : src/core/Vehicle.cpp.s
 
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
 # target to build an object file
 src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\YourProjectName.dir\build.make CMakeFiles/YourProjectName.dir/src/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/main.cpp.obj
 .PHONY : src/main.cpp.obj
 
 src/main.i: src/main.cpp.i
@@ -141,7 +226,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\YourProjectName.dir\build.make CMakeFiles/YourProjectName.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -149,8 +234,128 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\YourProjectName.dir\build.make CMakeFiles/YourProjectName.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/managers/FileHandler.obj: src/managers/FileHandler.cpp.obj
+.PHONY : src/managers/FileHandler.obj
+
+# target to build an object file
+src/managers/FileHandler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/managers/FileHandler.cpp.obj
+.PHONY : src/managers/FileHandler.cpp.obj
+
+src/managers/FileHandler.i: src/managers/FileHandler.cpp.i
+.PHONY : src/managers/FileHandler.i
+
+# target to preprocess a source file
+src/managers/FileHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/managers/FileHandler.cpp.i
+.PHONY : src/managers/FileHandler.cpp.i
+
+src/managers/FileHandler.s: src/managers/FileHandler.cpp.s
+.PHONY : src/managers/FileHandler.s
+
+# target to generate assembly for a file
+src/managers/FileHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/managers/FileHandler.cpp.s
+.PHONY : src/managers/FileHandler.cpp.s
+
+src/managers/TrafficManager.obj: src/managers/TrafficManager.cpp.obj
+.PHONY : src/managers/TrafficManager.obj
+
+# target to build an object file
+src/managers/TrafficManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/managers/TrafficManager.cpp.obj
+.PHONY : src/managers/TrafficManager.cpp.obj
+
+src/managers/TrafficManager.i: src/managers/TrafficManager.cpp.i
+.PHONY : src/managers/TrafficManager.i
+
+# target to preprocess a source file
+src/managers/TrafficManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/managers/TrafficManager.cpp.i
+.PHONY : src/managers/TrafficManager.cpp.i
+
+src/managers/TrafficManager.s: src/managers/TrafficManager.cpp.s
+.PHONY : src/managers/TrafficManager.s
+
+# target to generate assembly for a file
+src/managers/TrafficManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/managers/TrafficManager.cpp.s
+.PHONY : src/managers/TrafficManager.cpp.s
+
+src/traffic_generator.obj: src/traffic_generator.cpp.obj
+.PHONY : src/traffic_generator.obj
+
+# target to build an object file
+src/traffic_generator.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\traffic_generator.dir\build.make CMakeFiles/traffic_generator.dir/src/traffic_generator.cpp.obj
+.PHONY : src/traffic_generator.cpp.obj
+
+src/traffic_generator.i: src/traffic_generator.cpp.i
+.PHONY : src/traffic_generator.i
+
+# target to preprocess a source file
+src/traffic_generator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\traffic_generator.dir\build.make CMakeFiles/traffic_generator.dir/src/traffic_generator.cpp.i
+.PHONY : src/traffic_generator.cpp.i
+
+src/traffic_generator.s: src/traffic_generator.cpp.s
+.PHONY : src/traffic_generator.s
+
+# target to generate assembly for a file
+src/traffic_generator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\traffic_generator.dir\build.make CMakeFiles/traffic_generator.dir/src/traffic_generator.cpp.s
+.PHONY : src/traffic_generator.cpp.s
+
+src/utils/DebugLogger.obj: src/utils/DebugLogger.cpp.obj
+.PHONY : src/utils/DebugLogger.obj
+
+# target to build an object file
+src/utils/DebugLogger.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/utils/DebugLogger.cpp.obj
+.PHONY : src/utils/DebugLogger.cpp.obj
+
+src/utils/DebugLogger.i: src/utils/DebugLogger.cpp.i
+.PHONY : src/utils/DebugLogger.i
+
+# target to preprocess a source file
+src/utils/DebugLogger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/utils/DebugLogger.cpp.i
+.PHONY : src/utils/DebugLogger.cpp.i
+
+src/utils/DebugLogger.s: src/utils/DebugLogger.cpp.s
+.PHONY : src/utils/DebugLogger.s
+
+# target to generate assembly for a file
+src/utils/DebugLogger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/utils/DebugLogger.cpp.s
+.PHONY : src/utils/DebugLogger.cpp.s
+
+src/visualization/Renderer.obj: src/visualization/Renderer.cpp.obj
+.PHONY : src/visualization/Renderer.obj
+
+# target to build an object file
+src/visualization/Renderer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/visualization/Renderer.cpp.obj
+.PHONY : src/visualization/Renderer.cpp.obj
+
+src/visualization/Renderer.i: src/visualization/Renderer.cpp.i
+.PHONY : src/visualization/Renderer.i
+
+# target to preprocess a source file
+src/visualization/Renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/visualization/Renderer.cpp.i
+.PHONY : src/visualization/Renderer.cpp.i
+
+src/visualization/Renderer.s: src/visualization/Renderer.cpp.s
+.PHONY : src/visualization/Renderer.s
+
+# target to generate assembly for a file
+src/visualization/Renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\simulator.dir\build.make CMakeFiles/simulator.dir/src/visualization/Renderer.cpp.s
+.PHONY : src/visualization/Renderer.cpp.s
 
 # Help Target
 help:
@@ -160,10 +365,35 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... YourProjectName
+	@echo ... simulator
+	@echo ... traffic_generator
+	@echo ... src/core/Lane.obj
+	@echo ... src/core/Lane.i
+	@echo ... src/core/Lane.s
+	@echo ... src/core/TrafficLight.obj
+	@echo ... src/core/TrafficLight.i
+	@echo ... src/core/TrafficLight.s
+	@echo ... src/core/Vehicle.obj
+	@echo ... src/core/Vehicle.i
+	@echo ... src/core/Vehicle.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... src/managers/FileHandler.obj
+	@echo ... src/managers/FileHandler.i
+	@echo ... src/managers/FileHandler.s
+	@echo ... src/managers/TrafficManager.obj
+	@echo ... src/managers/TrafficManager.i
+	@echo ... src/managers/TrafficManager.s
+	@echo ... src/traffic_generator.obj
+	@echo ... src/traffic_generator.i
+	@echo ... src/traffic_generator.s
+	@echo ... src/utils/DebugLogger.obj
+	@echo ... src/utils/DebugLogger.i
+	@echo ... src/utils/DebugLogger.s
+	@echo ... src/visualization/Renderer.obj
+	@echo ... src/visualization/Renderer.i
+	@echo ... src/visualization/Renderer.s
 .PHONY : help
 
 
