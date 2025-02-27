@@ -1,145 +1,91 @@
-// TrafficManager.h
-#pragma once
-#include "core/Constants.h"
+// FILE: include/managers/TrafficManager.h
+#ifndef TRAFFIC_MANAGER_H
+#define TRAFFIC_MANAGER_H
+
+#include <vector>
+#include <map>
+#include <atomic>
+#include <memory>
+#include <string>
+#include <SDL3/SDL.h>
+
 #include "core/Lane.h"
 #include "core/TrafficLight.h"
-#include "core/Vehicle.h"
 #include "managers/FileHandler.h"
 #include "utils/PriorityQueue.h"
-#include <vector>
-#include <memory>
-#include <map>
-#include <chrono>
-
-struct Position {
-    float x;
-    float y;
-    Position(float x_ = 0.0f, float y_ = 0.0f) : x(x_), y(y_) {}
-};
-
-struct VehicleState {
-    std::shared_ptr<Vehicle> vehicle;
-    Position pos;                  // Current position
-    Position targetPos;           // Target position
-    float speed;                  // Current speed
-    bool isMoving;               // Is vehicle in motion
-    Direction direction;          // Turn direction
-    bool hasStartedTurn;         // Has turn begun
-    float turnProgress;          // Turn progress (0-1)
-    float waitTime;              // Time in queue
-    float turnAngle;             // Current angle
-    float targetAngle;           // Target angle
-    Position turnCenter;         // Center of turn
-    float turnRadius;            // Turn radius
-    float startAngle;           // Start angle for turn
-    float endAngle;             // End angle for turn
-    float processingTime;        // Time being processed
-    size_t queuePosition;        // Position in lane queue
-    bool inIntersection;        // Whether in intersection
-    bool isPassing;             // Whether passing through intersection
-    bool isChangingLanes;       // Whether changing lanes
-    bool hasStoppedAtLight;     // Whether stopped at light
-    std::vector<Position> intermediateTargets;  // Waypoints for lane changes
-    size_t currentTargetIndex;   // Current waypoint index
-};
 
 class TrafficManager {
 public:
     TrafficManager();
+    ~TrafficManager();
 
-    // Core update methods
-    void update(float deltaTime);
-    void addVehicleToLane(LaneId laneId, std::shared_ptr<Vehicle> vehicle);
-    size_t getLaneSize(LaneId laneId) const;
+    // Initialize the manager
+    bool initialize();
 
-    // State queries
-    bool isInPriorityMode() const { return inPriorityMode; }
-    const std::vector<std::unique_ptr<Lane>>& getLanes() const { return lanes; }
-    const std::map<LaneId, TrafficLight>& getTrafficLights() const { return trafficLights; }
-    const std::map<uint32_t, VehicleState>& getActiveVehicles() const { return activeVehicles; }
+    // Start the manager
+    void start();
+
+    // Stop the manager
+    void stop();
+
+    // Update the traffic state
+    void update(uint32_t delta);
+
+    // Get the lanes for rendering
+    const std::vector<Lane*>& getLanes() const;
+
+    // Get the traffic light
+    TrafficLight* getTrafficLight() const;
+
+    // Check if a lane is being prioritized
+    bool isLanePrioritized(char laneId, int laneNumber) const;
+
+    // Get the priority lane
+    Lane* getPriorityLane() const;
+
+    // Get statistics for display
+    std::string getStatistics() const;
+
+    // Find lane by ID and number
+    Lane* findLane(char laneId, int laneNumber) const;
 
 private:
-    // Core components
-    std::vector<std::unique_ptr<Lane>> lanes;
-    std::map<LaneId, TrafficLight> trafficLights;
-    std::map<uint32_t, VehicleState> activeVehicles;
-    FileHandler fileHandler;
+    // Lanes for each road
+    std::vector<Lane*> lanes;
 
-    // State tracking
-    bool inPriorityMode;
-    float stateTimer;
-    float lastUpdateTime;
-    float processingTimer;
-    size_t totalVehiclesProcessed;
-    float averageWaitTime;
+    // Priority queue for lane management
+    PriorityQueue<Lane*> lanePriorityQueue;
 
-    // Constants
-    static constexpr size_t PRIORITY_THRESHOLD = 10;
-    static constexpr size_t PRIORITY_RELEASE_THRESHOLD = 5;
-    static constexpr float MIN_STATE_TIME = 5.0f;
-    static constexpr float MAX_STATE_TIME = 30.0f;
-    static constexpr float VEHICLE_PROCESS_TIME = 2.0f;
+    // Traffic light
+    TrafficLight* trafficLight;
 
-    // Vehicle management methods
-    void addNewVehicleToState(std::shared_ptr<Vehicle> vehicle, LaneId laneId);
-    void updateVehiclePositions(float deltaTime);
-    void updateStraightMovement(VehicleState& state, float deltaTime);
-    void updateTurningMovement(VehicleState& state, float deltaTime);
-    bool checkCollision(const VehicleState& state, float newX, float newY) const;
-    float calculateTurningRadius(Direction dir) const;
-    void calculateTurnPath(VehicleState& state);
-    bool hasReachedDestination(const VehicleState& state) const;
-    void updateVehicleQueuePosition(VehicleState& state, LaneId laneId, size_t queuePosition);
-    void calculateTargetPosition(VehicleState& state, LaneId laneId);
+    // File handler for reading vehicle data
+    FileHandler* fileHandler;
 
-    bool isNearIntersection(const VehicleState& state) const;
+    // Flag to indicate if the manager is running
+    std::atomic<bool> running;
 
+    // Time tracking for periodic operations
+    uint32_t lastFileCheckTime;
+    uint32_t lastPriorityUpdateTime;
 
-    void updateVehicleMovement(VehicleState& state, float deltaTime);
+    // Read vehicles from files
+    void readVehicles();
 
+  void limitVehiclesPerLane();
+  void preventVehicleOverlap();
 
+    // Update lane priorities
+    void updatePriorities();
 
-    // Add these new member function declarations
-    LightState getLightStateForLane(LaneId laneId) const;
-    float getDistanceToIntersection(const VehicleState& state) const;
-    bool hasVehicleAhead(const VehicleState& state) const;
-    LaneId determineTargetLane(LaneId currentLane, Direction direction) const;
-    void changeLaneToFree(VehicleState& state);
-    void changeLaneToFirst(VehicleState& state);
-    void calculateLeftTurnPath(VehicleState& state);
-    void calculateRightTurnPath(VehicleState& state);
+    // Add a vehicle to the appropriate lane
+    void addVehicle(Vehicle* vehicle);
 
-    bool isVehicleAhead(const VehicleState& first, const VehicleState& second) const;
+    // Process vehicles in lanes
+    void processVehicles(uint32_t delta);
 
-    // Lane management methods
-    LaneId determineOptimalLane(Direction direction, LaneId sourceLane) const;
-    bool isValidSpawnLane(LaneId laneId, Direction direction) const;
-    bool isFreeLane(LaneId laneId) const;
-    Lane* getPriorityLane() const;
-    void processNewVehicles();
-    Position calculateLaneEndpoint(LaneId laneId) const;
-    bool isInIntersection(const Position& pos) const;
-
-    // Traffic light management
-    void updateTrafficLights(float deltaTime);
-    void synchronizeTrafficLights();
-    void handleStateTransition(float deltaTime);
-    bool checkPriorityConditions() const;
-    bool canVehicleMove(const VehicleState& state) const;
-
-    // Queue processing
-    void processPriorityLane();
-    void processNormalLanes(size_t vehicleCount);
-    void processFreeLanes();
-    size_t calculateVehiclesToProcess() const;
-    void checkWaitTimes();
-    void updateTimers(float deltaTime);
-
-    void removeVehicle(uint32_t vehicleId);
-
-    // Statistics and metrics
-    void updateStatistics(float deltaTime);
-    float calculateAverageWaitTime() const;
-    size_t getQueuedVehicleCount() const;
-    void cleanupRemovedVehicles();
+    // Check for vehicles leaving the simulation
+    void checkVehicleBoundaries();
 };
+
+#endif // TRAFFIC_MANAGER_H
