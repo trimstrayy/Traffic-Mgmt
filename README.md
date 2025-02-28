@@ -28,6 +28,11 @@ This project simulates a traffic junction management system using queue data str
 - SDL3 library
 - Git
 
+
+## 🎥 Simulation Display
+Below is a snapshot of the traffic simulation in action:
+![Traffic Junction Simulator Demo](simulation.gif)
+
 ### Build Steps
 ```bash
 # Clone repository with submodules
@@ -49,7 +54,4 @@ cd build
 cd bin
 run trafficgenerator.exe && run simulator.exe
 
-## 🎥 Simulation Display
-Below is a snapshot of the traffic simulation in action:
-![Traffic Junction Simulator Demo](simulation.gif)
-.
+
