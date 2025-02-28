@@ -51,6 +51,5 @@ run trafficgenerator.exe && run simulator.exe
 
 ## 🎥 Simulation Display
 Below is a snapshot of the traffic simulation in action:
-![Traffic Simulation](./simulation.gif)
-
-This image shows the real-time traffic flow, lane prioritization, and traffic light management.
+![Traffic Junction Simulator Demo](simulation.gif)
+.
